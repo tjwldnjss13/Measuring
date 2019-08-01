@@ -1,24 +1,30 @@
 package com.example.measuring;
 
-import android.annotation.TargetApi;
-import android.content.DialogInterface;
-import android.content.pm.PackageManager;
-import android.os.Build;
+import android.nfc.Tag;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.SurfaceView;
-import android.view.WindowManager;
-import org.opencv.android.BaseLoaderCallback;
-import org.opencv.android.CameraBridgeViewBase;
-import org.opencv.android.LoaderCallbackInterface;
+
 import org.opencv.android.OpenCVLoader;
-import org.opencv.core.Mat;
 
+public class MainActivity extends AppCompatActivity {
+    private static String TAG = "MainActivity";
 
+    static {
+        if (OpenCVLoader.initDebug())
+            Log.i(TAG, "Opencv loaded successfully");
+        else
+            Log.i(TAG, "Opencv not loaded");
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+}
+
+/*
 public class MainActivity extends AppCompatActivity
         implements CameraBridgeViewBase.CvCameraViewListener2 {
 
@@ -202,6 +208,5 @@ public class MainActivity extends AppCompatActivity
         });
         builder.create().show();
     }
-
-
 }
+*/
